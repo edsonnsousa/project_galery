@@ -1,14 +1,19 @@
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="Yinka Enoch Adedokun">
-    <title>Login</title>
-</head>
-<body>
-<!-- Main Content -->
-<form method="post"  align="center">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Log In</button>
-</form>
-</body>
+{% extends 'myapp/base.html' %}
+{% block title %}Faça o login{% endblock %}
+{% block content %}
+<div class="container" xmlns="http://www.w3.org/1999/html">
+    <div class="py-3 text-center bg-primary text-white">
+
+        <h1 class="mb-3">Galeria de Casamento</h1>
+
+    </div>
+        <center>
+        <h1>Faça seu Login</h1>
+        <form action="." method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input class="btn btn-primary" type="submit" value="Login">
+        </form>
+        </center>
+    </div>
+{% endblock %}
