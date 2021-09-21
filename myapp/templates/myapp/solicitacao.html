@@ -41,14 +41,14 @@
     </div>
 </nav>
 <body>
-<div class="container">
+<div class="container" align="center" >
     <div class="py-3 text-center bg-primary text-white">
         <h1 class="mb-3">Galeria de Casamento</h1>
         <h2 class="mb-3">Aqui você pode aprovar ou reprovar as fotos enviadas</h2>
         <div class="row">
             {% for x in img %}
-            {% if x.id > 10 %}
             <div class="col-sm-4">
+                {% if x.tipo == 2 %}
                 <div class="card m-2">
                     <img src="{{x.photo.url}}" alt="" class="card-img-top" height="200px">
                     <div class="card-footer">
@@ -57,18 +57,17 @@
                         <div class="fav">
                             {{fav.name}}
                         </div>
-                        <button><a href="/delete/{{x.id}}">Aprovado</a></button>
+                        <button><a href="/aprovado/{{x.id}}">Aprovado</a></button>
                         <button><a href="/delete/{{x.id}}">Não aprovado</a></button>
 
                         {% endif %}
 
 
-
                     </div>
                 </div>
                 {% endif %}
-            </div>
 
+            </div>
             {% endfor %}
 
         </div>

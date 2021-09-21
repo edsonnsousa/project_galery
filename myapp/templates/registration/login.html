@@ -12,8 +12,10 @@
         <form action="." method="post">
             {% csrf_token %}
             {{ form.as_p }}
-            <input class="btn btn-primary" type="submit" value="Login">
+            <input class="btn btn-primary" type="submit" value="Entrar">
         </form>
-        </center>
+
+    <h4>Sem conta? Faça seu <a class="nav-link" href="/cadastrar_usuario">Cadastro</a></h4>
+            </center>
     </div>
 {% endblock %}

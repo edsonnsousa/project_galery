@@ -2,7 +2,7 @@ import imghdr
 
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.core.checks import messages
 from django.shortcuts import render, get_object_or_404, redirect
 from .forms import ImageForm
@@ -60,3 +60,20 @@ def solicitacao(request):
         form = ImageForm()
         img = Image.objects.all()
         return render(request, 'myapp/solicitacao.html', {'img': img, 'form': form})
+
+
+def aprovado(request,list_id):
+    Image.objects.filter(pk=list_id).update(tipo=1)
+
+    return render(request, 'myapp/aprovado.html')
+
+
+def cadastrar_usuario(request):
+    if request.method == "POST":
+        form_usuario = UserCreationForm(request.POST)
+        if form_usuario.is_valid():
+            form_usuario.save()
+            return redirect('/')
+    else:
+        form_usuario = UserCreationForm()
+    return render(request, 'myapp/cadastro.html', {'form_usuario': form_usuario})
