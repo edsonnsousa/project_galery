@@ -1,0 +1,14 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Yinka Enoch Adedokun">
+    <title>Login</title>
+</head>
+<body>
+<!-- Main Content -->
+<form method="post"  align="center">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Log In</button>
+</form>
+</body>
